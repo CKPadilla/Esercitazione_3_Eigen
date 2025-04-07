@@ -1,7 +1,6 @@
 /*
 Nome, cognome e matricola: Cael Kyler Padilla | 307931
 Esercitazione_3_Eigen
-
 */
 
 #include <iostream>
@@ -43,19 +42,19 @@ double errore(const VectorXd& x0 , const VectorXd& x1){   // prende come paramet
 int main()
 {
     // scrivo la soluzione esatta
-    VectorXd x_ex;
+    VectorXd x_ex(2);   //2 è la dimensione del vettore
     x_ex << -1.0e+0, -1.0e+00;
 
     // primo sistema
-    MatrixXd A1(2,2);   // creo la matrice A
+    MatrixXd A1(2,2);   // creo la matrice A 2x2
     A1 << 5.547001962252291e-01, -3.770900990025203e-02,
          8.320502943378437e-01, -9.992887623566787e-01;
 
     VectorXd b1(2);   // creo il vettore coeff b
     b1 << -5.169911863249772e-01, 1.672384680188350e-01;
 
-    VectorXd x_qr1 = sistemaQR(A1,b1);   // risolvo con fattorizzazione qr
-    VectorXd x_palu1 = sistemaPALU(A1,b1);   // risolvo con fattorizzazione palu
+    Vector2d x_qr1 = sistemaQR(A1,b1);   // risolvo con fattorizzazione qr
+    Vector2d x_palu1 = sistemaPALU(A1,b1);   // risolvo con fattorizzazione palu
 
     double err_qr1 = errore(x_ex, x_qr1);   // errore relativo con qr
     double err_palu1= errore(x_ex, x_palu1);   // errore relativo con palu
@@ -73,8 +72,8 @@ int main()
     VectorXd b2(2);   // creo il vettore coeff b
     b2 << -6.394645785530173e-04, 4.259549612877223e-04;
 
-    VectorXd x_qr2 = sistemaQR(A2,b2);   // risolvo con fattorizzazione qr
-    VectorXd x_palu2 = sistemaPALU(A2,b2);   // risolvo con fattorizzazione palu
+    Vector2d x_qr2 = sistemaQR(A2,b2);   // risolvo con fattorizzazione qr
+    Vector2d x_palu2 = sistemaPALU(A2,b2);   // risolvo con fattorizzazione palu
 
     double err_qr2 = errore(x_ex, x_qr2);   // errore relativo con qr
     double err_palu2= errore(x_ex, x_palu2);   // errore relativo con palu
@@ -92,8 +91,8 @@ int main()
     VectorXd b3(2);   // creo il vettore coeff b
     b3 << -6.400391328043042e-10, 4.266924591433963e-10;
 
-    VectorXd x_qr3 = sistemaQR(A3,b3);   // risolvo con fattorizzazione qr
-    VectorXd x_palu3 = sistemaPALU(A3,b3);   // risolvo con fattorizzazione palu
+    Vector2d x_qr3 = sistemaQR(A3,b3);   // risolvo con fattorizzazione qr
+    Vector2d x_palu3 = sistemaPALU(A3,b3);   // risolvo con fattorizzazione palu
 
     double err_qr3 = errore(x_ex, x_qr3);   // errore relativo con qr
     double err_palu3= errore(x_ex, x_palu3);   // errore relativo con palu
