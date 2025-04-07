@@ -1,3 +1,9 @@
+/*
+Nome, cognome e matricola: Cael Kyler Padilla | 307931
+Esercitazione_3_Eigen
+
+*/
+
 #include <iostream>
 #include "Eigen/Eigen"
 
